@@ -16,9 +16,7 @@ class Todo(db.Model):
         return f"{self.sno} - {self.title}"
 
 
-@app.route('/name')
-def hello_name():
-    return 'Hello, This is Pratik Patil...!'
+
 
 @app.route('/', methods=['GET', 'POST'])
 def hello_home():
