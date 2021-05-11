@@ -14,16 +14,13 @@ class Todo(db.Model):
 
     def __repr__(self) -> str:
         return f"{self.sno} - {self.title}"
-@app.route('/')
-def hello_world():
-    
-    return 'Hello, World!'
+
 
 @app.route('/name')
 def hello_name():
     return 'Hello, This is Pratik Patil...!'
 
-@app.route('/render_name', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def hello_home():
     if request.method=='POST':
         title=request.form['title']
@@ -42,7 +39,7 @@ def delete(sno):
     todo=Todo.query.filter_by(sno=sno).first()
     db.session.delete(todo)
     db.session.commit()
-    return redirect("/render_name")
+    return redirect("/")
 
 @app.route('/update/<int:sno>', methods=['GET', 'POST'])
 def update(sno):
@@ -54,7 +51,7 @@ def update(sno):
         todo.desc=desc
         db.session.add(todo)
         db.session.commit()
-        return redirect("/render_name")
+        return redirect("/")
     todo=Todo.query.filter_by(sno=sno).first()
     return render_template('update.html',todo=todo)
     

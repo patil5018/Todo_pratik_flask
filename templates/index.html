@@ -4,7 +4,7 @@
       
     <div class="container">
       <h1>Add Todos</h1>
-        <form action="/render_name" method="POST">
+        <form action="/" method="POST">
             <div class="mb-3">
               <label for="title" class="form-label">Todo Title</label>
               <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp">
@@ -39,11 +39,10 @@
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
-                
+                <tbody>
                 
               
                 {% for todo in allTodo %}
-                <tbody>
                 <tr>
                     <th scope="row">{{loop.index}}</th>
                     <td>{{todo.title}}</td>
@@ -55,11 +54,10 @@
                     </td>
 
                   </tr>
-                </tbody>
                   {% endfor %}
               
               
-            
+            </tbody>
           </table>
           
           {% endif %}
