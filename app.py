@@ -37,7 +37,7 @@ def hello_home():
     return render_template('index.html',allTodo=allTodo)
 
 
-@app.route('/delete/<int:sno>')
+@app.route('/delete/<int:sno>', methods=['GET', 'POST'])
 def delete(sno):
     todo=Todo.query.filter_by(sno=sno).first()
     db.session.delete(todo)
