@@ -55,5 +55,9 @@ def update(sno):
     
     return render_template('update.html',todo=todo)
 
+@app.route('/about')
+def aboutUs():
+    return render_template('about.html')
+
 if __name__=="__main__":
     app.run(debug=True)   #app.run(debug=True,port=8000 )
